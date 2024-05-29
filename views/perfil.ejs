@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Perfil</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css?family=Caveat"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="dark:bg-white dark:text-black">
+    <%- include ('navbar.ejs') %>
+    <div>
+      <Navbar />
+    </div>
+    <div
+      class="fonte-cairo grid grid-rows-2 grid-flow-col gap-2 items-end place-content-end mt-5 mr-10 font-semibold"
+    >
+      <div>
+        <a href="/mudarfotoperfil">
+          <h4>Mudar foto perfil</h4>
+        </a>
+      </div>
+      <div>
+        <a href="/mudarsenha">
+          <h4>Mudar senha</h4>
+        </a>
+      </div>
+    </div>
+    <div
+      class="fonte-cairo grid grid-cols-1 mt-5 place-items-center space-y-4 font-semibold"
+    >
+      <img
+        class="rounded-md w-56"
+        alt="Tailwind CSS Navbar component"
+        src="<%= usuario.imagemPerfil %>"
+      />
+      <div>
+        <h4 class="text-4xl fonte-cairo font-extrabold">
+          <%= usuario.username %>
+        </h4>
+      </div>
+      <div class="inline-flex items-baseline">
+        <div class="text-2xl font-bold fonte-cairo">Saldo:</div>
+        <div class="text-3xl font-extrabold fonte-cairo text-[#003586]">
+          <%= usuario.dinheiro %>€
+        </div>
+      </div>
+    </div>
+    <div
+      class="fonte-cairo grid grid-cols-1 mt-10 ml-28 place-items-left space-y-4 font-semibold"
+    >
+      <div class="inline-flex items-baseline">
+        <div class="fonte-cairo font-bold text-xl">Nome -</div>
+        <div class="fonte-cairo font-bold text-2xl text-[#003586]">
+          <%= usuario.nomes + " " + usuario.sobrenomes %>
+        </div>
+      </div>
+      <div class="inline-flex items-baseline">
+        <div class="fonte-cairo font-bold text-xl">Data de Nascimento -</div>
+        <div class="fonte-cairo font-bold text-2xl text-[#003586]">
+          <%= dataNascimentoFormatada %>
+        </div>
+      </div>
+      <div class="inline-flex items-baseline">
+        <div class="fonte-cairo font-bold text-xl">NºTelemovel -</div>
+        <div class="fonte-cairo font-bold text-2xl text-[#003586]">
+          <%= usuario.numeroTelemovel %>
+        </div>
+      </div>
+      <div class="inline-flex items-baseline">
+        <div class="fonte-cairo font-bold text-xl">Estado civil -</div>
+        <div class="fonte-cairo font-bold text-2xl text-[#003586]">
+          <%= usuario.estadoCivil %>
+        </div>
+      </div>
+    </div>
+    <div class="flex mt-5 justify-evenly">
+      <a href="/carregarsaldo">
+        <button
+          class="bg-[#002660] font-bold fonte-cairo border-[#10102e] text-white hover:bg-[#10102e] hover:border-[#101927] sm:text-xs md:text-sm lg:text-base xl:text-lg 2xl:text-xl ml-2 mr-2 my-2 sm:border-[1px] md:border-[2px] lg:border-[3px] xl:border-[4px] 2xl:border-[5px] sm:w-28 md:w-36 lg:w-44 xl:w-52 2xl:w-56 sm:h-6 md:h-8 lg:h-10 xl:h-12 2xl:h-14 shadow-xl"
+        >
+          Carregar Saldo
+        </button>
+      </a>
+      <a href="/minhaspropriedades">
+        <button
+          class="bg-[#002660] font-bold fonte-cairo border-[#10102e] text-white hover:bg-[#10102e] hover:border-[#101927] sm:text-xs md:text-sm lg:text-base xl:text-lg 2xl:text-xl ml-2 mr-2 my-2 sm:border-[1px] md:border-[2px] lg:border-[3px] xl:border-[4px] 2xl:border-[5px] sm:w-28 md:w-36 lg:w-44 xl:w-52 2xl:w-56 sm:h-6 md:h-8 lg:h-10 xl:h-12 2xl:h-14 shadow-xl"
+        >
+          Minhas propriedades
+        </button>
+      </a>
+    </div>
+  </body>
+  <footer class="left-0 bottom-0 w-full"><%- include ('footer.ejs') %></footer>
+</html>

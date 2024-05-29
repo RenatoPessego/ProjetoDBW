@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Detalhes</title>
+    <style>
+        .image-container {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            margin: 0 auto; /* Center the container horizontally */
+            overflow: hidden; /* Hide overflow for smaller images */
+        }
+    
+        .image-container img {
+            display: none;
+            width: 40%; /* Make images fill the container */
+            height: 40%; /* Make images fill the container */
+            object-fit: cover; /* Maintain aspect ratio */
+        }
+        @media screen and (max-width: 1024px) {
+            .image-container img {
+                width: 65%; /* Make images fill the container */
+                height: 65%; /* Make images fill the container */
+            }
+            
+        }
+        @media screen and (max-width: 768px) {
+            .image-container img {
+                width: 65%; /* Make images fill the container */
+                height: 65%; /* Make images fill the container */
+            }
+            
+        }
+        @media screen and (max-width: 640px) {
+            .image-container img {
+                width: 50%; /* Make images fill the container */
+                height: 50%; /* Make images fill the container */
+            }
+            
+        }
+        .image-container img.active {
+            display: block;
+        }
+    
+        .prev,
+        .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            font-size: 24px;
+            z-index: 1;
+            color: white; /* Ensure arrows are visible */
+            background-color: rgb(0, 0, 0); /* Add a background for better visibility */
+            padding: 10px; /* Add some padding for better clickability */
+        }
+    
+        .prev {
+            left: 10px;
+        }
+    
+        .next {
+            right: 10px;
+        }
+    </style>
+    <link rel="stylesheet" href="../stylesheets/style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css?family=Caveat"
+      rel="stylesheet"
+    />
+  </head>
+  
+  <body class="mb-10 bg-white dark:bg-white dark:text-black">
+    <div><%- include ('navbar.ejs') %></div>
+    <div class="fonte-cairo font-bold ml-10 mt-20 text-7xl">
+      Informações completas
+    </div>
+    <hr class="ml-10 w-11/12 h-[2px] my-4 bg-black rounded md:my-4 dark:bg-black">
+
+    <div class="fonte-cairo font-medium ml-10 mt-10 text-4xl text-left">
+        <!-- TODO METER A IMAGEM DA CASA -->
+        <div class="image-container">
+            <% infocasa.imagensCasa.forEach((imagemUrl, index) => { %>
+                <img src="<%= imagemUrl %>" alt="Imagem da casa" class="w-11/12 h-11/12 <%= index === 0 ? 'active' : '' %>" id="image<%= index %>">
+            <% }); %>
+            <span class="prev" onclick="mudarImagem(-1)">&larr;</span>
+            <span class="next" onclick="mudarImagem(1)">&rarr;</span>
+        </div>        
+    </div>
+    <div class="flex justify-center text-center mt-5 items-baseline">
+        <div class="fonte-cairo font-bold text-3xl ">Preço: </div>
+        <div class="fonte-cairo font-extrabold text-[#0077ff] text-5xl text-center"><%= infocasa.preco%>€</div>
+    </div>
+    <div class="fonte-cairo font-bold ml-10 mt-10 text-4xl text-center"><%= infocasa.nomeImovel %> - <%= infocasa.cidade %>, <%= infocasa.pais %></div>
+    <div class="flex ml-10 mt-10 text-left items-baseline">
+        <div class="fonte-cairo font-extrabold text-4xl ">Descrição: </div>
+        <div class="fonte-cairo font-bold ml-2 text-3xl text-center"><%= infocasa.descricaoDetalhada %></div>
+    </div>
+    <div class="fonte-cairo font-bold ml-10 mt-10 text-4xl text-left">Área: <%= infocasa.area %> m^2
+        <p></p>Nº de quartos: <%= infocasa.nQuartos %>
+        <p></p>Nº de casas de banho: <%= infocasa.nCasasBanho %>
+        <p></p>Garagem com <%= infocasa.nEstacionamento %> lugares
+        <p></p>Classificação energética <%= infocasa.classificacaoEnergetica %></div>
+    <div class="fonte-cairo font-bold ml-10 mt-10 text-4xl text-left text-[#0077ff]">Contactos:</div>
+    <div class="fonte-cairo font-bold ml-10  text-4xl text-left">
+        <ul class="ml-10">
+            <li style="list-style-type: disc;">
+                <div class="inline-flex items-baseline ">
+                    <div class="fonte-cairo font-semibold text-4xl">Nºtelemóvel: </div>
+                    <div class="fonte-cairo ml-2 text-4xl"><%= infocasa.nTelemovel %></div>
+                </div>
+              </li>
+              <li style="list-style-type: disc;">
+                <div class="inline-flex items-baseline ">
+                    <div class="fonte-cairo font-semibold text-4xl">E-mail: </div>
+                    <div class="fonte-cairo ml-2 text-4xl"><%= infocasa.email %></div>
+                </div>
+              </li>
+            
+        </ul>
+    </div>
+    <div class="fonte-cairo font-bold ml-10 mt-10 text-4xl text-left text-[#0077ff]">Características específicas:</div>
+    <div class="fonte-cairo font-bold ml-10  text-4xl text-left">
+        
+        <ul class="ml-10">
+
+          <li style="list-style-type: disc;">
+            <div class="inline-flex items-baseline ">
+                <div class="fonte-cairo font-semibold text-4xl">Acessibilidade: </div>
+                <div class="fonte-cairo ml-2 text-4xl"><%= infocasa.acessibilidade == "on" ? 'Sim' : 'Não' %></div>
+            </div>
+          </li>
+          <li style="list-style-type: disc;">
+            <div class="inline-flex items-baseline ">
+                <div class="fonte-cairo font-semibold text-4xl">Zona exterior: </div>
+                <div class="fonte-cairo ml-2 text-4xl"> <%= infocasa.zonaExterior == "on" ? 'Sim' : 'Não' %></div>
+            </div>
+          </li>
+          <li style="list-style-type: disc;">
+            <div class="inline-flex items-baseline ">
+                <div class="fonte-cairo font-semibold text-4xl">Piscina: </div>
+                <div class="fonte-cairo ml-2 text-4xl"> <%= infocasa.piscina== "on" ? 'Sim' : 'Não' %></div>
+            </div>
+          </li>
+          <li style="list-style-type: disc;">
+            <div class="inline-flex items-baseline ">
+                <div class="fonte-cairo font-semibold text-4xl">Varanda: </div>
+                <div class="fonte-cairo ml-2 text-4xl"><%= infocasa.varanda== "on" ? 'Sim' : 'Não' %></div>
+            </div>
+          </li>
+          <li style="list-style-type: disc;">
+            <div class="inline-flex items-baseline ">
+                <div class="fonte-cairo font-semibold text-4xl">Elevador: </div>
+                <div class="fonte-cairo ml-2 text-4xl"><%= infocasa.elevador== "on" ? 'Sim' : 'Não' %></div>
+            </div>
+          </li>
+          <li style="list-style-type: disc;">
+            <div class="inline-flex items-baseline ">
+                <div class="fonte-cairo font-semibold text-4xl">Ar condicionado: </div>
+                <div class="fonte-cairo ml-2 text-4xl"><%= infocasa.arCondicionado== "on" ? 'Sim' : 'Não' %></div>
+            </div>
+          </li>
+          <li style="list-style-type: disc;">
+            <div class="inline-flex items-baseline ">
+                <div class="fonte-cairo font-semibold text-4xl">Jardim: </div>
+                <div class="fonte-cairo ml-2 text-4xl"><%= infocasa.jardim== "on" ? 'Sim' : 'Não' %></div>
+            </div>
+          </li>
+        </ul>
+      </div>      
+    <br></br>
+    <a class="ml-10" href=<%= "/finalizarcompra?casaid=" + infocasa._id %>>
+        <button class="w-48 h-12 bg-[#0077ff] hover:bg-[#0754ac] text-xl font-bold fonte-cairo border-[3px]  border-white">Comprar casa</button>
+    </a>
+    <br></br>
+    <div class="fonte-cairo font-medium ml-10 mt-10 text-4xl text-left">
+        <h2 class="fonte-cairo">Comments:</h2>
+        <div id="commentBox">
+          <% infocasa.comentarios.forEach((comentario) => { %>
+            <div class="text-left font-medium fonte-cairo text-2xl"><%= comentario %></div>
+        <% }); %>
+        </div>
+        <textarea class="mt-5 border-black border-2" id="commentInput" rows="4" cols="50"></textarea>
+        <button id="submitCarregarSaldo" class="ml-10 text-2xl mt-5 font-bold border-4 text-white border-[#0098C8] rounded-full w-52 h-15"
+        onclick="adicionarComentario()">Adicionar comentário</button><br>
+        
+      </div>
+      <div class="mb-10"></div>
+    </body>
+      <footer class="left-0 right-0 absolute bg-sky-200 dark:bg-sky-200">
+        <%- include ('footer.ejs') %>
+    </footer>
+    <script>
+        let imagemAtual = 0;
+        function mudarImagem(index) {
+            const images = document.querySelectorAll('.image-container img');
+            images[imagemAtual].classList.remove('active');
+            imagemAtual = (imagemAtual + index + images.length) % images.length;
+            images[imagemAtual].classList.add('active');
+        }
+        function getCasaIDFromURL() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const homeId = urlParams.get('casaid');
+        return homeId;
+        }
+    async function adicionarComentario() {
+    const commentInput = document.getElementById("commentInput").value;
+    const homeId = getCasaIDFromURL();
+    try {
+        const response = await fetch('/vendernossosite/detalhes', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ comment: commentInput, homeId }),
+        });
+        if (response.ok) {
+            location.reload();
+        } else {
+            res.redirect('/error');
+        }
+    } catch (error) {
+        console.error('Error adding comment:', error);
+    }
+}
+    </script>
+  
+</html>

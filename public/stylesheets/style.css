@@ -1,0 +1,130 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap");
+
+:root,
+[data-theme="light"] {
+  background-color: #ffffff !important; /* Example dark mode background color */
+  /* Add more variables as needed */
+}
+:root,
+[data-theme="dark"] {
+  background-color: #ffffff !important; /* Example dark mode background color */
+  /* Add more variables as needed */
+}
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+html * {
+  font-family: "Libre Franklin", sans-serif !important;
+}
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.housedremnavbar {
+  font-family: "Caveat" !important;
+  color: white;
+}
+.fonte-cairo {
+  font-family: "Cairo", sans-serif !important;
+}
+
+table.casasC_V {
+  th {
+    border: 2px solid black;
+    border-collapse: collapse;
+  }
+  td {
+    border: 2px solid black;
+    border-collapse: collapse;
+  }
+}
+
+.colocarimg {
+  float: left;
+  margin: 2px;
+}
+
+.overlay {
+  width: 0;
+  background-color: white;
+  height: 0;
+  border: 2px solid #333;
+
+  visibility: hidden;
+}
+
+#colocarimgoverlay {
+  float: left;
+  margin: 2px;
+}
+
+#colocarimgoverlay:hover ~ #overlay_info_pergunta {
+  height: auto;
+  width: auto;
+  float: left;
+  padding: 10px;
+  visibility: visible;
+}
+
+a {
+  color: #00b7ff;
+}
+
+div.texto-housedream {
+  font-family: "Caveat" !important;
+  color: #003a49;
+}
+
+.imagemdefundo {
+  background-image: url("../images/imagem-casas.jpg");
+  background-size: cover;
+}
+
+.fonte-cairo {
+  font-family: "Cairo", sans-serif !important;
+}
+
+.imagemlupa {
+  width: 40px !important;
+  height: 40px !important;
+}
+
+.navbarposicao {
+  position: "sticky";
+  top: "0";
+  height: "80px";
+}
+
+button.btn.btn-primary.rounded-full {
+  background-color: #00b7ff;
+  color: #ffffff;
+  border: 1px solid #ad084d;
+  border-radius: 50%;
+}
+
+.caixinha {
+  width: calc(100vw - 100px);
+}
+
+.labelinputstyle {
+  background: #abeeff;
+  width: calc(100vw - 100px);
+}
+button#submitCarregarSaldo {
+  background-color: #00b7ff;
+}
+
+.caixinha {
+  width: calc(100vw - 100px);
+}
+
+.labelinputstyle {
+  background: #abeeff;
+  width: calc(100vw - 100px);
+}

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Detalhes Casa</title>
+    <style>
+      .image-container {
+        position: relative;
+        width: 80%; /* Adjust the width as needed */
+        height: 400px; /* Adjust the height as needed */
+        margin: 0 auto; /* Center the container horizontally */
+        overflow: hidden; /* Hide overflow for smaller images */
+      }
+
+      .image-container img {
+        display: none;
+        position: absolute;
+        width: 100%; /* Make images fill the container */
+        height: 100%; /* Make images fill the container */
+        object-fit: cover; /* Maintain aspect ratio */
+      }
+
+      .image-container img.active {
+        display: block;
+      }
+
+      .prev,
+      .next {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+        font-size: 24px;
+        z-index: 1;
+        color: white; /* Ensure arrows are visible */
+        background-color: rgb(
+          0,
+          0,
+          0
+        ); /* Add a background for better visibility */
+        padding: 10px; /* Add some padding for better clickability */
+      }
+
+      .prev {
+        left: 10px;
+      }
+
+      .next {
+        right: 10px;
+      }
+    </style>
+    <link rel="stylesheet" href="../stylesheets/style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css?family=Caveat"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body class="mb-10 bg-white dark:bg-white dark:text-black">
+    <div><%- include ('navbar.ejs') %></div>
+    <div class="fonte-cairo font-bold ml-10 mt-20 text-7xl">
+      Informações completas
+    </div>
+    <hr
+      class="ml-10 w-11/12 h-[2px] my-4 bg-black rounded md:my-4 dark:bg-black"
+    />
+    <div class="fonte-cairo font-medium ml-10 mt-10 text-4xl text-left">
+      <!-- TODO METER A IMAGEM DA CASA -->
+      <div class="image-container">
+        <% infocasa.imagensCasa.forEach((imagemUrl, index) => { %>
+        <img
+          src="<%= imagemUrl %>"
+          alt="Imagem da casa"
+          class="w-11/12 h-11/12 <%= index === 0 ? 'active' : '' %>"
+          id="image<%= index %>"
+        />
+        <% }); %>
+        <span class="prev" onclick="mudarImagem(-1)">&larr;</span>
+        <span class="next" onclick="mudarImagem(1)">&rarr;</span>
+      </div>
+    </div>
+    <div class="fonte-cairo font-bold ml-10 mt-10 text-5xl text-center">
+      Preço: <%= infocasa.preco%>€
+    </div>
+
+    <div class="fonte-cairo font-medium ml-10 mt-10 text-4xl text-center">
+      <%= infocasa.nomeImovel %> - <%= infocasa.cidade %>, <%= infocasa.pais %>
+    </div>
+    <div class="fonte-cairo font-medium ml-10 mt-10 text-4xl text-left">
+      Descrição: <%= infocasa.descricaoDetalhada %>
+    </div>
+    <div class="fonte-cairo font-medium ml-10 mt-10 text-4xl text-left">
+      Área: <%= infocasa.area %> m^2
+      <p></p>
+      Nº de quartos: <%= infocasa.nQuartos %>
+      <p></p>
+      Nº de casas de banho: <%= infocasa.nCasasBanho %>
+      <p></p>
+      Garagem com <%= infocasa.nEstacionamento %> lugares
+      <p></p>
+      Classificação energética <%= infocasa.classificacaoEnergetica %>
+    </div>
+    <div class="fonte-cairo font-medium ml-10 mt-10 text-4xl text-left">
+      Contactos:
+      <ul class="ml-10">
+        <li style="list-style-type: disc">
+          Nºtelemóvel: <%= infocasa.nTelemovel %>
+        </li>
+        <li style="list-style-type: disc">E-mail: <%= infocasa.email %></li>
+      </ul>
+    </div>
+    <div class="fonte-cairo font-medium ml-10 mt-10 text-4xl text-left">
+      Características específicas:
+      <ul class="ml-10">
+        <li style="list-style-type: disc">
+          Acessibilidade: <%= infocasa.acessibilidade ? 'sim' : 'não' %>
+        </li>
+        <li style="list-style-type: disc">
+          Zona exterior: <%= infocasa.zonaExterior ? 'sim' : 'não' %>
+        </li>
+        <li style="list-style-type: disc">
+          Piscina: <%= infocasa.piscina ? 'sim' : 'não' %>
+        </li>
+        <li style="list-style-type: disc">
+          Varanda: <%= infocasa.varanda ? 'sim' : 'não' %>
+        </li>
+        <li style="list-style-type: disc">
+          Elevador: <%= infocasa.elevador ? 'sim' : 'não' %>
+        </li>
+        <li style="list-style-type: disc">
+          Ar condicionado: <%= infocasa.arCondicionado ? 'sim' : 'não' %>
+        </li>
+        <li style="list-style-type: disc">
+          Jardim: <%= infocasa.jardim ? 'sim' : 'não' %>
+        </li>
+      </ul>
+    </div>
+    <br />
+    <div class="fonte-cairo font-medium ml-10 mt-10 text-4xl text-left">
+      <h2>Comments</h2>
+      <div id="commentBox">
+        <% infocasa.comentarios.forEach((comentario) => { %>
+        <div class="text-left font-medium text-2xl"><%= comentario %></div>
+        <% }); %>
+      </div>
+      <textarea class="mt-5 border-black border-2" id="commentInput" rows="4" cols="50"></textarea>
+        <button id="submitCarregarSaldo" class="ml-10 text-2xl mt-5 font-bold border-4 text-white border-[#0098C8] rounded-full w-52 h-15"
+        onclick="adicionarComentario()">Adicionar comentário</button><br>
+      </div>
+    </div>
+  </body>
+  <footer class="left-0 right-0 absolute bg-sky-200 dark:bg-sky-200">
+    <%- include ('footer.ejs') %>
+  </footer>
+  <script>
+    let imagemAtual = 0;
+    function mudarImagem(index) {
+      const images = document.querySelectorAll(".image-container img");
+      images[imagemAtual].classList.remove("active");
+      imagemAtual = (imagemAtual + index + images.length) % images.length;
+      images[imagemAtual].classList.add("active");
+    }
+    function getCasaIDFromURL() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const homeId = urlParams.get("casaid");
+      return homeId;
+    }
+    async function adicionarComentario() {
+      const commentInput = document.getElementById("commentInput").value;
+      const homeId = getCasaIDFromURL();
+      try {
+        const response = await fetch("/vendernossosite/detalhes", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ comment: commentInput, homeId }),
+        });
+        if (response.ok) {
+          location.reload();
+        } else {
+          res.redirect("/error");
+        }
+      } catch (error) {
+        console.error("Error adding comment:", error);
+      }
+    }
+  </script>
+</html>

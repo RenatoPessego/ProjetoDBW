@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Suporte</title>
+    <link rel="stylesheet" href="../stylesheets/style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css?family=Caveat"
+      rel="stylesheet"
+    />
+  </head>
+  
+  <body class=" bg-white dark:bg-white dark:text-black">
+    <div><%- include ('navbar.ejs') %></div>
+    <div class="fonte-cairo font-bold ml-10 mt-20 text-7xl">Suporte</div>
+    <hr
+      class="w-11/12 h-[0.5px] mx-auto my-4 bg-gray-700 border-0 rounded md:my-4 dark:bg-gray-700"
+    />
+    <div class="ml-10 text-4xl font-medium text-red-500"><%= Erro %></div>
+    <div
+      class="fonte-cairo pt-32 text-black text-4xl font-bold font-['Cairo'] text-center"
+    >
+      Bem-vindo ao Suporte da House Dream!
+    </div>
+    <br />
+    <div class="ml-10 mr-10 text-justify pt-16">
+      <div
+        class="fonte-cairo mt-4 text-black text-[32px] font-extrabold font-['Cairo']"
+      >
+        Como podemos ajudá-lo ?
+      </div>
+      <br />
+      <br />
+      <div
+        class="fonte-cairo text-black text-[32px] font-medium font-['Cairo']"
+      >
+        Na HouseDream, estamos comprometidos em fornecer o melhor atendimento ao
+        cliente.Se você tiver alguma dúvida, feedback ou precisar de
+        assistência, não hesite em entrar em contato connosco.
+        <br />
+        <br />
+        <div
+          class="fonte-cairo mt-4 text-black text-[32px] font-extrabold font-['Cairo']"
+        >
+          Estamos aqui para ajudar!
+        </div>
+        <br />
+        <div
+          class="fonte-cairo mt-4 text-black text-[32px] font-extrabold font-['Cairo']"
+        >
+          Opções de Contacto:
+        </div>
+        <br />
+      </div>
+      <div
+        class="fonte-cairo text-black text-[32px] font-medium font-['Cairo']"
+      >
+        Na House Dream, acreditamos que uma casa não é apenas uma estrutura
+        física, mas sim um espaço onde memórias são criadas, famílias crescem e
+        vidas se desenrolam. Com essa visão em mente, nossa equipe apaixonada e
+        experiente trabalha incansavelmente para ajudá-lo a encontrar a casa
+        perfeita ou vender a sua propriedade com sucesso.
+        <br />
+        <br />
+      </div>
+      <div
+        class="fonte-cairo text-black text-[32px] font-extrabold font-['Cairo']"
+      >
+        O Que Nos Diferencia?
+        <br />
+        <br />
+      </div>
+      <div
+        class="fonte-cairo text-black text-[32px] font-medium font-['Cairo']"
+      >
+        Experiência Personalizada: Cada cliente é único e nós nos esforçamos
+        para entender suas necessidades específicas. Desde a primeira consulta
+        até o fechamento do negócio, oferecemos um serviço personalizado e
+        atencioso, através do nosso e-mail e chat ao vivo.
+        <br />
+      </div>
+      <br />
+      <div
+        class="fonte-cairo text-black text-[32px] font-medium font-['Cairo']"
+      >
+        Transparência e Integridade: Valorizamos a confiança que você deposita
+        em nós. Por isso, mantemos uma comunicação transparente e agimos com
+        integridade em todas as transações.
+        <br />
+      </div>
+      <br />
+      <div
+        class="fonte-cairo text-black text-[32px] font-medium font-['Cairo']"
+      >
+        Taxas de serviço mínimas: Os nossos clientes benefeciam das taxas mais
+        baixas do mercado, em relação ao mercado imobiliário.
+        <br />
+      </div>
+      <br />
+      <div
+        class="fonte-cairo text-black text-[32px] font-extrabold font-['Cairo']"
+      >
+        Por que escolher a House Dream?
+        <br />
+        <br />
+      </div>
+      <div
+        class="fonte-cairo text-black text-[32px] font-medium font-['Cairo']"
+      >
+        Somos apaixonados pelo que fazemos e estamos comprometidos em tornar a
+        experiência de compra ou venda de imóveis o mais suave possível.
+        <br />
+      </div>
+      <br />
+      <div
+        class="fonte-cairo text-black text-[32px] font-medium font-['Cairo']"
+      >
+        Valorizamos a sua satisfação e trabalhamos incansavelmente para superar
+        as suas expectativas.
+        <br />
+      </div>
+      <br />
+      <div
+        class="fonte-cairo text-black text-[32px] font-medium font-['Cairo']"
+      >
+        Acreditamos que todos merecem encontrar o lar dos seus sonhos e estamos
+        aqui para tornar isso realidade.
+        <br />
+      </div>
+      <div
+        class="fonte-cairo text-black text-[32px] font-medium font-['Cairo']"
+      >
+        <br />
+        Entre em contato connosco se está procurando a casa perfeita ou deseja
+        vender a sua propriedade, a House Dream está pronta para ajudar. Venha
+        ter connosco e deixe-nos fazer parte da sua jornada imobiliária.
+        <br />
+        <br />
+      </div>
+    </div>
+    
+    <script>
+            function ativarChat() {
+                var mostrarChat = true;
+                var chatOverlay = document.getElementById("chat-overlay");
+                chatOverlay.style.display = mostrarChat ? "block" : "none";
+            }
+            function fecharChat() {
+                var mostrarChat = false;
+                var chatOverlay = document.getElementById("chat-overlay");
+                chatOverlay.style.display = mostrarChat ? "block" : "none";
+            }
+      </script>
+      <footer><%- include ('footer.ejs') %></footer>
+      <div class="fixed bottom-10 right-10">
+        <button onClick="ativarChat()">
+          <img
+            loading="lazy"
+            class="w-12 h-12"
+            src="../images/suporte_mensagem.svg"
+            alt="botao chat"
+          />
+        </button>
+      </div>
+      <div id="chat-overlay" style="display: none;">
+        <div class="fixed bottom-32 right-12 w-[150px] h-[150px] flex justify-end items-start">
+          <div class="relative w-[150px] h-[150px] bg-white border border-black rounded-md mt-4 mr-4">
+            <div class="absolute top-0 right-0 p-2">
+          <button onClick="fecharChat()">
+            <img class="lazy" src="../images/fechar_botao.svg" alt="fecharBotao"></img>
+          </button>
+            </div>
+            <% if (usuario.admin) { %>
+              <div class="w-full h-[40%] flex flex-col mt-14 p-4">
+                <a href="/suporte/CHATADMIN"><button class="btn btn-primary">Suporte admin</button></a>
+              </div>
+            <% } %>
+            <% if (!usuario.admin) { %>
+              <div class="w-full h-[40%] flex flex-col mt-14 p-4">
+                <a href="/suporte/chat?userid=<%= usuario.username %>"><button class="btn btn-primary">Suporte ao vivo</button></a>
+              </div>
+            <% } %>
+          </div>
+        </div>
+      </div>
+  </body>
+</html>

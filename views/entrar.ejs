@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Entrar</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css?family=Caveat"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background-image: url("../images/logozoom.png");
+        background-size: cover;
+        background-position: center;
+        height: 100vh;
+      }
+    </style>
+  </head>
+  <body class="fundo-entrar h-screen bg-logo bg-no-repeat bg-center">
+    <div
+      class="bg-[#037997] bg-opacity-70 flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0"
+    >
+      <div
+        class="w-full bg-[#B4EBF9] rounded-3xl shadow md:mt-0 sm:max-w-md xl:p-0"
+      >
+        <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
+          <div class="texto-housedream text-center font-black text-lg">
+            HOUSEDREAM
+          </div>
+
+          <h1
+            class="text-center font-bold leading-tight tracking-tight text-[#085D72] md:text-5xl -translate-y-1/4"
+          >
+            Iniciar Sessão
+            <hr
+              class="w-20 xl:w-56 lg:w-44 md:w-28 h-1 mx-auto my-4 bg-gray-100 border-0 rounded md:my-4 dark:bg-gray-700"
+            />
+          </h1>
+          <div></div>
+          <div class="text-center font-bold text-red-600"><%= mensagem %></div>
+          <form class="space-y-4 md:space-y-6" action="/entrar" method="POST">
+            <div>
+              <label
+                for="username"
+                class="block mb-2 text-1xl text-black font-bold"
+              >
+                Nome de utilizador
+              </label>
+              <input
+                type="text"
+                name="username"
+                id="username"
+                class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                required
+              />
+            </div>
+            <div>
+              <label
+                for="senha"
+                class="block mb-2 text-1xl text-black font-bold"
+              >
+                Palavra passe
+              </label>
+              <input
+                type="password"
+                name="password"
+                id="password"
+                class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                required=""
+              />
+            </div>
+            <div class="flex items-center justify-center">
+              <a
+                href="/recuperar_senha"
+                class="text-gray-950 text-sm font-semibold text-primary-600 hover:underline"
+              >
+                Esqueceu-se da senha?
+              </a>
+            </div>
+            <div class="text-center font-semibold">
+              <button
+                class="text-sm w-32 xl:text-2x1 xl:w-60 lg:text-lg lg:w-52 md:text-base md:w-44 hover:bg-[#003A49] bg-[#2894B0] border-white text-white border-4 rounded-full h-16"
+              >
+                CONTINUAR
+              </button>
+            </div>
+          </form>
+          <div class="grid grid-cols-1 justify-items-center">
+            <a href="/">
+              <button
+                class="text-[#57ACC1] text-md mt-4 hover:bg-[#003A49] bg-white border-[#57ACC1] border-4 w-40 h-11"
+              >
+                Voltar atrás
+              </button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

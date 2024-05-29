@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Carregar Saldo</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css?family=Caveat"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-white text-black">
+    <%- include ('navbar.ejs') %>
+    <div class="fonte-cairo font-bold ml-10 mt-20 text-7xl">Carregar saldo</div>
+    <hr
+      class="ml-10 w-9/12 h-[2px] my-4 bg-black rounded md:my-4 dark:bg-black"
+    />
+    <div class="text-center font-bold text-red-600"><%= mensagem %></div>
+    <form method="POST">
+      <div>
+        <label
+          class="block mb-2 text-2xl ml-11 fonte-cairo text-black font-bold"
+          htmlFor="numero_cartao"
+        >
+          Número do cartão:
+        </label>
+        <input
+          type="number"
+          name="numero_cartao"
+          id="numero_cartao"
+          class="labelinputstyle h-[40px] border-[2px] mx-10 border-[#00b6e3] text-black rounded-lg"
+          required=""
+        />
+      </div>
+      <div>
+        <label
+          class="block mb-2 text-2xl mt-5 ml-11 fonte-cairo text-black font-bold"
+          htmlFor="nome_cartao"
+          >Nome no cartão:</label
+        >
+        <input
+          type="text"
+          name="nome_cartao"
+          id="nome_cartao"
+          class="labelinputstyle h-[40px] border-[2px] mx-10 border-[#00b6e3] text-black rounded-lg"
+        />
+      </div>
+      <div>
+        <div
+          class="block mb-2 text-2xl mt-5 ml-11 fonte-cairo text-black font-bold"
+        >
+          CVC:
+        </div>
+        <input
+          type="number"
+          name="cvc_cartao"
+          id="cvc_cartao"
+          class="labelinputstyle h-[40px] border-[2px] mx-10 border-[#00b6e3] text-black rounded-lg"
+          required=""
+        />
+      </div>
+      <div>
+        <div
+          class="block mb-2 text-2xl mt-5 ml-11 fonte-cairo text-black font-bold"
+        >
+          Validade:
+        </div>
+        <input
+          type="date"
+          name="validade_cartao"
+          id="validade_cartao"
+          class="labelinputstyle h-[40px] border-[2px] mx-10 border-[#00b6e3] text-black rounded-lg"
+          required=""
+        />
+      </div>
+      <div>
+        <label
+          htmlFor="valor"
+          class="block mb-2 text-2xl mt-5 ml-11 fonte-cairo text-black font-bold"
+          >Valor a Carregar:</label
+        >
+        <div>
+          <input
+            type="number"
+            name="valor"
+            id="valor"
+            class="labelinputstyle h-[40px] border-[2px] mx-10 border-[#00b6e3] text-black rounded-lg"
+          />
+        </div>
+      </div>
+      <div>
+        <button
+          type="submit"
+          id="submitCarregarSaldo"
+          class="ml-10 text-2xl mt-5 font-bold border-4 text-white border-[#0098C8] rounded-full w-52 h-15"
+        >
+          SUBMETER
+        </button>
+      </div>
+    </form>
+    <div class="mt-12 mb-10 flex justify-center">
+      <a href="https://www.mastercard.pt" target="_blank">
+        <img
+          class="h-20 hover:opacity-70"
+          src="../images/mastercard_logo.png"
+          alt="Mastercard"
+        />
+      </a>
+      <a href="https://www.visa.pt/" target="_blank">
+        <img
+          class="h-20 hover:opacity-70"
+          src="../images/visa_logo.png"
+          alt="Visa"
+        />
+      </a>
+      <a href="https://www.americanexpress.com/" target="_blank">
+        <img
+          class="h-20 hover:opacity-70"
+          src="../images/americanexpress_logo.png"
+          alt="Visa"
+        />
+      </a>
+      <a href="https://www.discover.com/" target="_blank">
+        <img
+          class="h-20 hover:opacity-70"
+          src="../images/discover_logo.png"
+          alt="Discover"
+        />
+      </a>
+    </div>
+  </body>
+  <footer><%- include ('footer.ejs') %></footer>
+</html>

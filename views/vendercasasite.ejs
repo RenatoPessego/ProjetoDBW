@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Vender</title>
+    <link rel="stylesheet" href="../stylesheets/style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css?family=Caveat"
+      rel="stylesheet"
+    />
+  </head>
+  <div><%- include ('navbar.ejs') %></div>
+  <body class="bg-white dark:bg-white dark:text-black">
+    <div class="fonte-cairo font-bold ml-10 mt-20 text-7xl">Vender</div>
+    <hr
+      class="w-11/12 h-[0.5px] mx-auto my-4 bg-gray-700 border-0 rounded md:my-4 dark:bg-gray-700"
+    />
+    <div class="ml-10 text-4xl font-medium text-red-500">
+      <%= title %>
+    </div>
+    <div
+      class="ml-12 mt-10 text-white dark:text-white card w-80 bg-[#002660] shadow-xl"
+    >
+      <figure class="px-10 pt-10">
+        <img
+          src="<%= infocasa.imagensCasa[0] %>"
+          alt="Casa"
+          class="rounded-xl"
+        />
+      </figure>
+      <div class="card-body items-center text-center">
+        <h2 class="card-title"><%= infocasa.nomeImovel %></h2>
+        <p>Localização: <%= infocasa.cidade%>,<%= infocasa.pais%></p>
+      </div>
+    </div>
+    <form>
+    <div class="ml-14 mt-10 text-2xl">
+      <label>Descrição detalhada</label>
+    </div>
+    <div>
+      <input
+        type="text"
+        name="descricao_imovel"
+        id="descricao_imovel"
+        class="bg-[#ABEEFF] border border-black text-gray-900 rounded-lg ml-14 mt-2 w-9/12 h-14"
+      />
+    </div>
+    <div class="ml-14 mt-10 text-2xl">
+      <h4>Preço</h4>
+      <input
+        required
+        type="number"
+        name="preco_imovel"
+        id="preco_imovel"
+        class="bg-[#ABEEFF] border border-black text-gray-900 rounded-lg h-8 w-20 xl:w-48 lg:w-48 md:w-44 sm:w-20"
+      ></input>
+    </div>
+    <input type="hidden" value="<%= infocasa.id %>" name="casa_id" />
+    <a>
+      <button 
+      type="submit"
+      formMethod="POST"
+      class="ml-10 mt-5 btn btn-primary">Vender</button>
+    </a>
+  </form>
+  </body>
+  <footer><%- include ('footer.ejs') %></footer>
+</html>

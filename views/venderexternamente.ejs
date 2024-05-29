@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Venderexternamente</title>
+    <link rel="stylesheet" href="../stylesheets/style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css?family=Caveat"
+      rel="stylesheet"
+    />
+  </head>
+  <div><%- include ('navbar.ejs') %></div>
+
+  <body class="mb-10 bg-white dark:bg-white dark:text-black">
+    <div class="bg-white text-black">
+      <h1 class="fonte-cairo font-bold mx-10 mt-10 text-7xl">
+        Vender a sua casa
+        <hr class="caixinha h-1 my-4 bg-black rounded md:my-4" />
+      </h1>
+      <div class="text-center font-bold text-red-600"><%= mensagem %></div>
+      <form id="formulariocasas" name="formulariocasas" enctype="multipart/form-data">
+        <label
+          class="block mb-2 text-2xl ml-11 text-black font-bold"
+          for="nomeImovel"
+        >
+          Nome do imóvel
+        </label>
+        <input
+          type="text"
+          name="nomeImovel"
+          id="nomeImovel"
+          class="labelinputstyle h-[40px] border-[2px] mx-10 border-[#00b6e3] text-black rounded-lg"
+          required
+        />
+        <label
+          class="block mb-2 text-2xl mt-4 ml-11 text-black font-bold"
+          for="descricaocompleta"
+          >Descrição detalhada</label
+        >
+        <div>
+          <input
+            type="text"
+            name="descricaoDetalhada"
+            id="descricaoDetalhada"
+            class="labelinputstyle h-[40px] border-[2px] mx-10 border-[#00b6e3] text-black rounded-lg"
+          />
+        </div>
+        <!-- fazeer caizinhas dos dados da casa -->
+        <div class="flex caixinha justify-between mx-10">
+          <div class="mr-2">
+            <label
+              class="block mb-2 text-2xl mt-4 text-black font-bold"
+              for="numeroandares"
+              >Número de andares</label
+            >
+            <input
+              required
+              type="number"
+              name="nAndares"
+              id="nAndares"
+              class="bg-[#abeeff] w-full h-[40px] border-[2px] border-[#00b6e3] text-black rounded-lg"
+            />
+          </div>
+          <div class="mr-2">
+            <label
+              class="block mb-2 text-2xl mt-4 text-black font-bold"
+              for="numeroquartos"
+              >Número de quartos</label
+            >
+            <input
+              required
+              type="number"
+              name="nQuartos"
+              id="nQuartos"
+              class="bg-[#abeeff] w-full h-[40px] border-[2px] border-[#00b6e3] text-black rounded-lg"
+            />
+          </div>
+          <div class="mr-2">
+            <label
+              class="block mb-2 text-2xl mt-4 text-black font-bold"
+              for="numerowc"
+              >Número de casas de banho</label
+            >
+            <input
+              required
+              type="number"
+              name="nCasasBanho"
+              id="nCasasBanho"
+              class="bg-[#abeeff] w-full h-[40px] border-[2px] border-[#00b6e3] text-black rounded-lg"
+            />
+          </div>
+        </div>
+        <div class="flex caixinha justify-between mx-10">
+          <div class="mr-2">
+            <label
+              class="block mb-2 text-2xl mt-4 text-black font-bold"
+              for="areacasa"
+              >Area(m2)</label
+            >
+            <input
+              required
+              type="number"
+              name="area"
+              id="area"
+              class="bg-[#abeeff] w-full h-[40px] border-[2px] border-[#00b6e3] text-black rounded-lg"
+            />
+          </div>
+          <div class="mr-2">
+            <label
+              class="block mb-2 text-2xl mt-4 text-black font-bold"
+              for="numeroestacionamento"
+              >Números de lugares de estacionamento</label
+            >
+            <input
+              required
+              type="number"
+              name="nEstacionamento"
+              id="nEstacionamento"
+              class="bg-[#abeeff] w-full h-[40px] border-[2px] border-[#00b6e3] text-black rounded-lg"
+            />
+          </div>
+          <div class="mr-2">
+            <label
+              class="block mb-2 text-2xl mt-4 text-black font-bold"
+              for="classificacaoEnergetica"
+              >Classe energética</label
+            >
+            <select
+              name="classificacaoEnergetica"
+              id="classificacaoEnergetica"
+              class="bg-[#abeeff] w-full h-[40px] border-[2px] border-[#00b6e3] text-black rounded-lg"
+              required=""
+            >
+              <option value =""></option>
+              <option value="A">A</option>
+              <option value="B">B</option>
+              <option value="C">C</option>
+              <option value="D">D</option>
+              <option value="E">E</option>
+              <option value="F">F</option>
+            </select>
+          </div>
+        </div>
+        <div class="flex caixinha justify-between mx-10">
+          <div class="block mb-2 text-2xl mt-4 text-black font-bold">
+            Acessibilidade ppara pessoas com mobilidade reduzida
+            <input
+              name="acessibilidade"
+              id="acessibilidade"
+              type="checkbox"
+              class="mr-2"
+            />
+          </div>
+          <div class="block mb-2 text-2xl mt-4 text-black font-bold">
+            Zona exterior
+            <input
+              name="zonaExterior"
+              id="zonaExterior"
+              type="checkbox"
+              class="mr-2"
+            />
+          </div>
+        </div>
+        <label
+          class="block mb-2 text-2xl ml-10 mt-4 text-black font-bold"
+          for="equipamentos"
+        >
+          Equipamentos
+        </label>
+        <!-- acessibilidade e zona exterior e classe de energia -->
+        <div class="flex caixinha justify-between mx-10">
+          <div class="mr-2 text-2xl">
+            Piscina
+            <input name="piscina" id="piscina" type="checkbox" class="mr-2" />
+          </div>
+          <div class="mr-2 text-2xl">
+            Varanda
+            <input name="varanda" id="varanda" type="checkbox" class="mr-2" />
+          </div>
+          <div class="mr-2 text-2xl">
+            Garagem
+            <input name="garagem" id="garagem" type="checkbox" class="mr-2" />
+          </div>
+        </div>
+        <div class="flex caixinha mt-2 justify-between mx-10">
+          <div class="mr-2 text-2xl">
+            Elevador
+            <input name="elevador" id="elevador" type="checkbox" class="mr-2" />
+          </div>
+          <div class="mr-2 text-2xl">
+            Jardim
+            <input name="jardim" id="jardim" type="checkbox" class="mr-2" />
+          </div>
+          <div class="mr-2 text-2xl">
+            Ar condicionado
+            <input
+              name="arCondicionado"
+              id="arCondicionado"
+              type="checkbox"
+              class="mr-2"
+            />
+          </div>
+        </div>
+
+        <!-- fazer preco... -->
+
+        <div class="flex caixinha justify-between mx-10">
+          <div class="mr-2">
+            <label
+              class="block mb-2 text-2xl mt-4 text-black font-bold"
+              for="precocasa"
+              >Preço</label
+            >
+            <input
+              required
+              type="number"
+              name="preco"
+              id="preco"
+              class="bg-[#abeeff] w-full h-[40px] border-[2px] border-[#00b6e3] text-black rounded-lg"
+            />
+          </div>
+          <div class="mr-2">
+            <label
+              class="block mb-2 text-2xl mt-4 text-black font-bold"
+              for="pais"
+              >País</label
+            >
+            <input
+              required
+              type="text"
+              name="pais"
+              id="pais"
+              class="bg-[#abeeff] w-full h-[40px] border-[2px] border-[#00b6e3] text-black rounded-lg"
+            />
+          </div>
+          <div class="mr-2">
+            <label
+              class="block mb-2 text-2xl mt-4 text-black font-bold"
+              for="cidadecasa"
+              >Cidade</label
+            >
+            <input
+              required
+              type="text"
+              name="cidadecasa"
+              id="cidadecasa"
+              class="bg-[#abeeff] w-full h-[40px] border-[2px] border-[#00b6e3] text-black rounded-lg"
+            />
+          </div>
+        </div>
+        <div class="flex caixinha justify-between mx-10">
+          <div class="mr-2">
+            <label
+              class="block mb-2 text-2xl mt-4 text-black font-bold"
+              for="numerotelemovel"
+              >Número telemóvel</label
+            >
+            <input
+              required
+              type="text"
+              name="numerotelemovel"
+              placeholder="+351 999999999"
+              id="numerotelemovel"
+              class="bg-[#abeeff] w-full h-[40px] border-[2px] border-[#00b6e3] text-black rounded-lg"
+            />
+          </div>
+          <div class="mr-2">
+            <label
+              class="block mb-2 text-2xl mt-4 text-black font-bold"
+              for="emailvendedor"
+              >Email</label
+            >
+            <input
+              required
+              type="text"
+              placeholder="house@gmail.com"
+              name="email"
+              id="email"
+              class="bg-[#abeeff] w-full h-[40px] border-[2px] border-[#00b6e3] text-black rounded-lg"
+            />
+          </div>
+          <div class="mr-2">
+            <label
+              class="block mb-2 text-2xl mt-4 text-black font-bold"
+              for="imagensCasa"
+              >Imagens da casa</label
+            >
+            <input
+              type="file"
+              name="imagensCasa"
+              id="imagensCasa"
+              class="bg-[#ABEEFF] border border-[#00B6E3] p-1.5 text-dark sm:text-sm rounded-lg"
+              required
+              multiple
+            />
+          </div>
+        </div>
+
+        <div>
+          <button
+            type="submit"
+            formMethod="POST"
+            class="ml-14 mt-5 mb-10 btn btn-primary"
+          >
+            Enviar
+          </button>
+        </div>
+      </form>
+    </div>
+  </body>
+  <footer class="mt-10 left-0 right-0 absolute">
+    <%- include ('footer.ejs') %>
+  </footer>
+  
+</html>

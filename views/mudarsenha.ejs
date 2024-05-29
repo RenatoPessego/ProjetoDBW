@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mudar senha</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css?family=Caveat"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="dark:bg-white dark:text-black">
+    <div class="grid grid-cols-1 justify-items-center text-center">
+      <form method="POST">
+        <div class="mt-28">
+          <h4>Senha atual</h4>
+          <input
+            type="password"
+            name="passwordAtual"
+            id="passwordAtual"
+            class="bg-[#ABEEFF] border border-black text-gray-900 rounded-lg mt-2"
+            required
+          />
+        </div>
+        <div class="mt-10">
+          <h4>Nova senha</h4>
+          <input
+            type="password"
+            name="passwordNova"
+            id="passwordNova"
+            class="bg-[#ABEEFF] border border-black text-gray-900 rounded-lg mt-2"
+            required
+          />
+        </div>
+        <div class="mt-10">
+          <h4>Repita a senha</h4>
+          <input
+            type="password"
+            name="passwordNovaRepetir"
+            id="passwordNovaRepetir"
+            class="bg-[#ABEEFF] border border-black text-gray-900 rounded-lg mt-2"
+            required
+          />
+        </div>
+        <button type="submit" class="mt-5 btn btn-primary">Mudar senha</button>
+      </form>
+    </div>
+  </body>
+</html>

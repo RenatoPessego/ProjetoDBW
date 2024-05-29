@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RecuperarSenha</title>
+    <link rel="stylesheet" href="../stylesheets/style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css?family=Caveat"
+      rel="stylesheet"
+    />
+    <style>
+      /* Defina a imagem de fundo */
+      body {
+        background-image: url("../images/logozoom.png");
+        background-size: cover; /* ajusta a imagem para cobrir todo o corpo */
+        background-position: center; /* centraliza a imagem */
+        height: 100vh; /* altura total da viewport */
+      }
+    </style>
+  </head>
+  <body class="fundo-entrar bg-logo bg-no-repeat bg-center">
+    <div
+      class="bg-[#037997] bg-opacity-70 bg-fixed flex flex-col items-center px-6 py-8 mx-auto lg:py-0"
+    >
+      <div
+        class="w-full bg-[#B4EBF9] rounded-3xl shadow my-8 sm:max-w-5xl xl:p-0"
+      >
+        <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
+          <div
+            class="texto-housedream text-center text-bold font-black text-2xl"
+          >
+            HOUSEDREAM
+          </div>
+          <h1
+            class="text-4xl text-center font-bold leading-tight tracking-tight text-[#085D72] md:text-5xl -translate-y-1/4"
+          >
+            Alterar Senha
+            <hr
+              class="w-40 h-1 mx-auto my-4 bg-[#085D72] border-0 rounded md:my-4 dark:bg-[#085D72]"
+            />
+          </h1>
+          <div class="text-center font-bold text-red-600"><%= mensagem %></div>
+          <form method="POST" class="space-y-4 md:space-y-6">
+            <div>
+              <label
+                for="perguntaSeguranca"
+                class="block mb-2 text-1xl text-black font-bold"
+              >
+                <div class="colocarimg">Pergunta de segurança</div>
+                <img src= ../images/Vector.png alt="Informação extra"
+                id="colocarimgoverlay">
+                <div class="overlay" id="overlay_info_pergunta">
+                  Questão gerada, a partir de inteligência artificial, utilizada
+                  para verificar a identidade do utilizador. Esta pergunta foi
+                  escolhida durante o registo e não pode ser alterada.
+                </div>
+              </label>
+              <input
+                type="text"
+                name="perguntaSeguranca"
+                id="perguntaSeguranca"
+                class="bg-gray-300 border border-black text-gray-900 sm:text-sm rounded-lg block w-full p-2.5"
+                disabled
+                value="<%= pergunta %>"
+              />
+            </div>
+            <div>
+              <label
+                for="respostaSeguranca"
+                class="block mb-2 text-1xl text-black font-bold"
+              >
+                Resposta de Segurança
+              </label>
+              <input
+                type="text"
+                name="respostaSeguranca"
+                id="respostaSeguranca"
+                class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5"
+                required=""
+              />
+            </div>
+            <div>
+              <label
+                for="novasenha"
+                class="block mb-2 text-1xl text-black font-bold"
+              >
+                Nova Senha
+              </label>
+              <input
+                type="password"
+                name="novasenha"
+                id="novasenha"
+                class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5"
+                required=""
+              />
+            </div>
+            <div>
+              <label
+                for="repetir_senha"
+                class="block mb-2 text-1xl text-black font-bold"
+              >
+                Repetir Senha
+              </label>
+              <input
+                type="password"
+                name="repetir_senha"
+                id="repetir_senha"
+                class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5"
+                required=""
+              />
+            </div>
+            <div class="text-center font-semibold">
+              <button
+                type="submit"
+                class="text-2xl hover:bg-[#003A49] bg-[#2894B0] border-white text-white border-4 rounded-full w-60 h-16"
+              >
+                SUBMETER
+              </button>
+              <br />
+              <button
+                class="text-[#57ACC1] text-md mt-4 hover:bg-[#003A49] bg-white border-[#57ACC1] border-4 w-40 h-11"
+              >
+                Voltar atrás
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Vender</title>
+    <link rel="stylesheet" href="../stylesheets/style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css?family=Caveat"
+      rel="stylesheet"
+    />
+  </head>
+  <div><%- include ('navbar.ejs') %></div>
+  <body class="bg-white dark:bg-white dark:text-black">
+    <div class="fonte-cairo font-bold ml-10 mt-20 text-7xl">
+      Vender a sua casa
+    </div>
+    <hr
+      class="w-11/12 h-1 mx-auto my-4 bg-gray-100 border-0 rounded md:my-4 dark:bg-gray-700"
+    />
+    <div class="fonte-cairo font-medium ml-10 mt-10 text-4xl">
+      Selecione a casa que deseja vender
+    </div>
+    <div class="text-3xl font-bold text-red-700 text-center mt-5">
+      <%= title %>
+    </div>
+    <div>
+      <ul></ul>
+    </div>
+    <div
+      class="mt-10 gap-y-5 justify-items-center grid grid-cols-1 xl:grid-cols-3 lg:grid-cols-3 md:grid-cols-1 sm:grid-cols-1 text-1xl xl:text-2xl lg:text-2xl md:text-2xl sm:text-1xl"
+    >
+      <% todascasas.forEach(todascasas=> { %>
+      <div class="text-white dark:text-white card w-80 bg-[#002660] shadow-xl">
+        <figure class="px-10 pt-10">
+          <img
+            src="<%= todascasas.imagensCasa[0] %>"
+            alt="Shoes"
+            class="rounded-xl"
+          />
+        </figure>
+        <div class="card-body items-center text-center">
+          <h2 class="card-title"><%= todascasas.nomeImovel %></h2>
+          <p>Localização: <%= todascasas.cidade%>,<%= todascasas.pais%></p>
+          <div class="card-actions mt-4 justify-center">
+            <a href="/vendernossosite/vender?casaid=<%= todascasas.id %>">
+              <button
+                class="w-40 h-14 bg-[#00C2FF] hover:bg-[#0e98c2] hover:border-[#1b6a82] text-2xl font-bold fonte-cairo text-white border-[3px] rounded-full border-[#157694]"
+              >
+                Vender
+              </button>
+            </a>
+            <a href="/vendernossosite/detalhes?casaid=<%= todascasas.id %>">
+              <button
+                class="w-48 h-12 bg-[#0077ff] hover:bg-[#0754ac] text-xl font-bold fonte-cairo border-[3px] border-white"
+              >
+                Ver mais detalhes
+              </button>
+            </a>
+          </div>
+        </div>
+      </div>
+      <% }); %>
+    </div>
+    <div class="mb-10"></div>
+  </body>
+  <footer><%- include ('footer.ejs') %></footer>
+</html>

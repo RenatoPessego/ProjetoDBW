@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Suporte</title>
+    <link rel="stylesheet" href="../stylesheets/style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css?family=Caveat"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-white dark:bg-white dark:text-black">
+    <div><%- include('navbar.ejs') %></div>
+    <div class="fonte-cairo font-bold ml-10 mt-20 text-7xl">Suporte</div>
+    <hr
+      class="w-11/12 h-[0.5px] mx-auto my-4 bg-gray-100 border-0 rounded md:my-4 dark:bg-gray-700"
+    />
+    <div class="ml-10 text-4xl font-medium text-red-500"><%= Erro %></div>
+    <div
+      class="fonte-cairo pt-32 text-black text-4xl font-bold font-['Cairo'] text-center"
+    >
+      Bem-vindo ao Suporte da House Dream!
+    </div>
+    <div
+      class="mt-2 fonte-cairo text-red-500 text-2xl font-bold font-['Cairo'] text-center"
+    >
+      Atenção que quando acabar de falar com o suporte as mensagens com o
+      administrador serão perdidas
+    </div>
+    <!-- Form to send messages -->
+    <div class="mt-4 grid grid-cols-1 justify-items-center">
+      <form id="message-form">
+        <input
+          type="text"
+          id="message-input"
+          placeholder="Digite sua mensagem"
+        />
+        <input type="hidden" id="username" value="<%= usuario.username %>" />
+        <button type="submit">Enviar</button>
+      </form>
+    </div>
+    <!-- Chat messages -->
+    <ul class="grid grid-cols-1 justify-items-left ml-10" id="messages"></ul>
+
+    <script
+      src="https://cdn.socket.io/4.7.5/socket.io.min.js"
+      integrity="sha384-2huaZvOR9iDzHqslqwpR87isEmrfxqyWOF7hr7BY6KG0+hVKLoEXMPUJw3ynWuhO"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      const ENDPOINT = "http://localhost:3001";
+      const socket = io(ENDPOINT, {
+        query: {
+          username: document.getElementById("username").value,
+        },
+      });
+      // Submit message form
+      document
+        .getElementById("message-form")
+        .addEventListener("submit", (e) => {
+          e.preventDefault(); // nao deixar o form dar submit
+          const messageInput = document.getElementById("message-input");
+          const username = document.getElementById("username").value;
+          const hostID = undefined;
+          const message = messageInput.value.trim();
+          if (message !== "") {
+            console.log(username, message);
+            socket.emit("msg privada", username, message, hostID); //msg server
+            const messagesList = document.getElementById("messages");
+            const li = document.createElement("li");
+            li.textContent = username + ": " + message;
+            messagesList.appendChild(li);
+            messageInput.value = "";
+          }
+        });
+      socket.on("msg privada", (username, message) => {
+        const messagesList = document.getElementById("messages");
+        const li = document.createElement("li");
+        li.textContent = username + ": " + message;
+        messagesList.appendChild(li);
+      });
+    </script>
+  </body>
+  <footer class="mt-60"><%- include('footer.ejs') %></footer>
+</html>

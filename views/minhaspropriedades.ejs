@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Minhas propriedades</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css?family=Caveat"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body class="mb-10 bg-white dark:bg-white dark:text-black">
+    <header class="dark:bg-white"><%- include ('navbar.ejs') %></header>
+    <div class="fonte-cairo font-bold ml-10 mt-20 text-7xl">
+      Minhas propriedades
+    </div>
+    <div class="fonte-cairo font-medium ml-10 mt-5 text-2xl">
+      <h4>Aqui tem todas as suas propriedades registadas no nosso site!</h4>
+    </div>
+    <div class="text-3xl font-bold text-red-700 text-center mt-5">
+      <%= title %>
+    </div>
+    <div>
+      <ul></ul>
+    </div>
+    <div
+      class="mt-10 gap-5 justify-items-center grid grid-cols-1 xl:grid-cols-3 lg:grid-cols-3 md:grid-cols-1 sm:grid-cols-1 text-1xl xl:text-2xl lg:text-2xl md:text-2xl sm:text-1xl"
+    >
+      <% todascasas.forEach(todascasas=> { %>
+      <div class="text-white dark:text-white card w-80 bg-[#002660] shadow-xl">
+        <figure class="px-10 pt-10">
+          <img
+            src="<%= todascasas.imagensCasa[0] %>"
+            alt="Shoes"
+            class="rounded-xl"
+          />
+        </figure>
+        <div class="card-body items-center text-center">
+          <h2 class="card-title"><%= todascasas.nomeImovel %></h2>
+          <p>Localização: <%= todascasas.cidade%>,<%= todascasas.pais%></p>
+          <div class="card-actions mt-4 items-center">
+            <a href="/detalhes?casaid=<%= todascasas.id %>">
+              <button class="btn btn-primary">Ver mais detalhes</button>
+            </a>
+          </div>
+        </div>
+      </div>
+      <% }); %>
+    </div>
+    <div class="mb-10"></div>
+  </body>
+  <footer><footer><%- include ('footer.ejs') %></footer></footer>
+</html>

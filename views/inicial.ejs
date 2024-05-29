@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Inicial</title>
+    <link rel="stylesheet" href="../stylesheets/style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.11.1/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <div class="imagemdefundo">
+      <%- include ('navbar.ejs') %>
+      <div
+        class="mt-10 fonte-cairo text-white sm:text-sm md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl font-bold ml-16 pt-1"
+      >
+        QUER COMPRAR A SUA CASA DE
+      </div>
+
+      <div
+        class="fonte-cairo text-white sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-bold drop-shadow-2xl text-center pt-1"
+      >
+        SONHO
+      </div>
+
+      <div
+        class="fonte-cairo text-white sm:text-sm md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl font-bold ml-16 pt-1"
+      >
+        Pode encontrá-la AQUI!
+      </div>
+      <form action="/comprar" method="post">
+        <div id="menu-filtrar" class="my-5 grid justify-center items-center">
+          <div
+            class="flex sm:h-8 md:h-10 lg:h-12 xl:h-14 2xl:h-16 sm:w-[500px] md:w-[600px] lg:w-[700px] xl:w-[900px] 2xl:w-[1100px] justify-center items-center rounded-full shadow-2xl bg-[#0098C8]"
+          >
+            <div>
+              <select
+                name="pais"
+                id="pais"
+                class="bg-[#00CFFF] border-[#84E8FF] text-black sm:text-xs md:text-sm lg:text-base xl:text-lg 2xl:text-xl ml-2 mr-2 my-2 sm:border-[1px] md:border-[2px] lg:border-[3px] xl:border-[4px] 2xl:border-[5px] sm:w-16 md:w-20 lg:w-24 xl:w-28 2xl:w-32 sm:h-6 md:h-8 lg:h-10 xl:h-12 2xl:h-14"
+              >
+                <option value="" selected>PAIS</option>
+                <% paises.forEach(pais => { %>
+                  <option value="<%= pais %>"><%= pais %></option>
+                <% }); %>
+              </select>
+            </div>
+            <div>
+              <select
+                name="cidade"
+                id="cidade"
+                class="bg-[#00CFFF] border-[#84E8FF] text-black sm:text-xs md:text-sm lg:text-base xl:text-lg 2xl:text-xl ml-2 mr-2 my-2 sm:border-[1px] md:border-[2px] lg:border-[3px] xl:border-[4px] 2xl:border-[5px] sm:w-16 md:w-20 lg:w-24 xl:w-28 2xl:w-32 sm:h-6 md:h-8 lg:h-10 xl:h-12 2xl:h-14"
+              >
+                <option value="" selected>CIDADE</option>
+                <% cidades.forEach(cidade => { %>
+                  <option value="<%= cidade %>"><%= cidade %></option>
+                <% }); %>
+              </select>
+            </div>
+            <div>
+              <select
+                name="area"
+                id="area"
+                class="bg-[#00CFFF] border-[#84E8FF] text-black sm:text-xs md:text-sm lg:text-base xl:text-lg 2xl:text-xl ml-2 mr-2 my-2 sm:border-[1px] md:border-[2px] lg:border-[3px] xl:border-[4px] 2xl:border-[5px] sm:w-16 md:w-20 lg:w-24 xl:w-28 2xl:w-32 sm:h-6 md:h-8 lg:h-10 xl:h-12 2xl:h-14"
+              >
+                <option value="" selected>AREA M2</option>
+                <option value="area50">0 a 50 m2</option>
+                <option value="area100">51 m2 a 100 m2</option>
+                <option value="area150">101 m2 a 150 m2</option>
+                <option value="area200">151 m2 a 200 m2</option>
+                <option value="area250">201 m2 a 250 m2</option>
+                <option value="area300">251 m2 a 300 m2</option>
+                <option value="areamaior300">300+ m2</option>
+              </select>
+            </div>
+            <div>
+              <select
+                name="preco"
+                id="preco"
+                class="bg-[#00CFFF] border-[#84E8FF] text-black sm:text-xs md:text-sm lg:text-base xl:text-lg 2xl:text-xl ml-2 mr-2 my-2 sm:border-[1px] md:border-[2px] lg:border-[3px] xl:border-[4px] 2xl:border-[5px] sm:w-16 md:w-20 lg:w-24 xl:w-28 2xl:w-32 sm:h-6 md:h-8 lg:h-10 xl:h-12 2xl:h-14"
+              >
+                <option value="" selected>PRECO</option>
+                <option value="preco100">0 a 100.000€</option>
+                <option value="preco200">100.000€ a 200.000€</option>
+                <option value="preco300">200.000€ a 300.000€</option>
+                <option value="preco500">300.000€ a 500.000€</option>
+                <option value="precomais500">500.000€+</option>
+              </select>
+            </div>
+            <div>
+              <select
+                name="acessibilidade"
+                id="acessibilidade"
+                class="bg-[#00CFFF] border-[#84E8FF] text-black sm:text-xs md:text-sm lg:text-base xl:text-lg 2xl:text-xl ml-2 mr-2 my-2 sm:border-[1px] md:border-[2px] lg:border-[3px] xl:border-[4px] 2xl:border-[5px] sm:w-16 md:w-20 lg:w-24 xl:w-28 2xl:w-32 sm:h-6 md:h-8 lg:h-10 xl:h-12 2xl:h-14"
+              >
+                <option value="" selected>ACESSIBILIDADE</option>
+                <option value="true">Sim</option>
+                <option value="false">Não</option>
+              </select>
+            </div>
+            <div>
+                <button
+                  type="submit"
+                  class="flex justify-center justify-items-center hover:bg-[#10102e] bg-[#002660] text-[#FFFFFF] shadow-lg ml-2 my-2 mr-2 rounded-full sm:w-5 md:w-10 lg:w-14 xl:w-24 2xl:w-32 sm:h-6 md:h-8 lg:h-10 xl:h-12 2xl:h-14"
+                >
+                <img class="imagemlupa my-2" src="../images/lupa.png" alt="Submit" />
+                </button>
+  
+            </div>
+          </form>
+        </div>
+      </div>
+            <div class="text-3xl font-bold text-red-700 text-center mt-5">
+              <%= title %>
+            </div>
+            <div
+              class="mt-10 space-y-10 xl:space-y-0 lg:space-y-0 md:space-y-10 sm:space-y-10 justify-items-center grid grid-cols-1 xl:grid-cols-3 lg:grid-cols-3 md:grid-cols-1 sm:grid-cols-1 text-1xl xl:text-2xl lg:text-2xl md:text-2xl sm:text-1xl"
+            >
+              <% casasbaralhadas.forEach(casasbaralhadas=> { %>
+
+              <div
+                class="text-white dark:text-white card w-80 bg-[#002660] shadow-xl"
+              >
+                <figure class="px-10 pt-10">
+                  <img
+                    src="<%= casasbaralhadas.imagensCasa[0] %>"
+                    alt="Shoes"
+                    class="rounded-xl"
+                  />
+                </figure>
+                <div class="card-body items-center text-center">
+                  <div class=" text-4xl font-extrabold fonte-cairo"><%= casasbaralhadas.nomeImovel %></div>
+                  <div class="text-2xl font-semibold">Localização :</div>
+                  <div class="inline-flex items-baseline">            
+                    <div class="text-3xl font-bold fonte-cairo" ><%= casasbaralhadas.cidade%> , </div> 
+                    <div class="text-2xl font-semibold fonte-cairo"><%= casasbaralhadas.pais%></div>
+                  </div>
+                  <div class="inline-flex items-center">  
+                    <div class="text-2xl font-semibold" >Preço :</div>
+                    <div class="text-4xl font-extrabold fonte-cairo"> <%= casasbaralhadas.preco%>€</div>
+                  </div>
+                  <div class="card-actions mt-4 justify-center">
+                    <a
+                      href="/comprar/finalizarcompra?casaid=<%= casasbaralhadas.id %>"
+                    >
+                      <button class="w-40 h-14 bg-[#00C2FF] hover:bg-[#0e98c2] hover:border-[#1b6a82] text-2xl font-bold fonte-cairo text-white border-[3px] rounded-full border-[#157694]">Comprar</button>
+                    </a>
+                    <a
+                      href="/comprar/detalhescomprar?casaid=<%= casasbaralhadas.id %>"
+                    >
+                      <button class="w-48 h-12 bg-[#0077ff] hover:bg-[#0754ac] text-xl font-bold fonte-cairo border-[3px]  border-white">Ver mais detalhes</button>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <% }); %>
+            </div>
+          
+
+          <div class="flex justify-items-center justify-center pt-4">
+            <div
+              class="bg-[#003586] sm:h-8 md:h-10 lg:h-12 xl:h-14 2xl:h-16 sm:w-[500px] md:w-[600px] lg:w-[700px] xl:w-[900px] 2xl:w-[1100px] rounded-full"
+            >
+              <div
+                class="text-white sm:text-xs md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-bold text-center fonte-cairo pt-1"
+              >
+                Pretende vendê-la, tambem pode fazê-lo aqui!
+              </div>
+            </div>
+          </div>
+
+          <div class="font-bold text-white mt-3 text-2xl text-center">
+            <a href="/venderexternamente">
+              <button
+                class="bg-[#002660] border-[#10102e] text-white hover:bg-[#10102e] hover:border-[#101927] sm:text-xs md:text-sm lg:text-base xl:text-lg 2xl:text-xl ml-2 mr-2 my-2 sm:border-[1px] md:border-[2px] lg:border-[3px] xl:border-[4px] 2xl:border-[5px] sm:w-16 md:w-20 lg:w-24 xl:w-28 2xl:w-32 sm:h-6 md:h-8 lg:h-10 xl:h-12 2xl:h-14 shadow-xl"
+              >
+                VENDER
+              </button>
+            </a>
+          </div>
+        </div>
+  </body>
+  <footer><%- include ('footer.ejs') %></footer>
+</html>

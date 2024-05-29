@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Saldo Insuficiente</title>
+  </head>
+  <body>
+    <%- include ('navbar.ejs') %>
+    <div
+      class="text-[#ad084d] text-2xl font-extrabold fonte-cairo flex justify-center"
+    >
+      Saldo Insuficiente para a compra!
+    </div>
+    <div class="bg-white text-black">
+      <br />
+      <br />
+    </div>
+
+    <div class="bg-white text-black flex justify-center">
+      <a href="/comprar">
+        <button
+          class="bg-[#002660] font-bold fonte-cairo border-[#10102e] text-white hover:bg-[#10102e] hover:border-[#101927] sm:text-xs md:text-sm lg:text-base xl:text-lg 2xl:text-xl ml-2 mr-2 my-2 sm:border-[1px] md:border-[2px] lg:border-[3px] xl:border-[4px] 2xl:border-[5px] sm:w-36 md:w-44 lg:w-48 xl:w-52 2xl:w-56 sm:h-6 md:h-8 lg:h-10 xl:h-12 2xl:h-14 shadow-xl"
+        >
+          Voltar à página comprar
+        </button>
+      </a>
+      <a href="/carregarsaldo">
+        <button
+          class="bg-[#002660] font-bold fonte-cairo border-[#10102e] text-white hover:bg-[#10102e] hover:border-[#101927] sm:text-xs md:text-sm lg:text-base xl:text-lg 2xl:text-xl ml-2 mr-2 my-2 sm:border-[1px] md:border-[2px] lg:border-[3px] xl:border-[4px] 2xl:border-[5px] sm:w-36 md:w-44 lg:w-48 xl:w-52 2xl:w-56 sm:h-6 md:h-8 lg:h-10 xl:h-12 2xl:h-14 shadow-xl"
+        >
+          Carregar Saldo
+        </button>
+      </a>
+    </div>
+  </body>
+  <footer><%- include ('footer.ejs') %></footer>
+</html>

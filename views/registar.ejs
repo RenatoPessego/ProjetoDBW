@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Registar</title>
+    <link rel="stylesheet" href="../stylesheets/style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css?family=Caveat"
+      rel="stylesheet"
+    />
+    <style>
+      /* Defina a imagem de fundo */
+      body {
+        background-image: url("../images/logozoom.png");
+        background-size: cover; /* ajusta a imagem para cobrir todo o corpo */
+        background-position: center; /* centraliza a imagem */
+        height: 100vh; /* altura total da viewport */
+      }
+    </style>
+  </head>
+  <body class="fundo-entrar bg-logo bg-no-repeat bg-center">
+    <div
+      class="bg-[#037997] bg-opacity-70 bg-fixed flex justify-center items-center px-6 py-8 mx-auto lg:py-0"
+    >
+      <div
+        class="w-full bg-[#B4EBF9] rounded-3xl shadow my-8 sm:max-w-5xl xl:p-0"
+      >
+        <div class="p-6 space-y-4 flex-auto md:space-y-6 sm:p-8">
+          <div
+            class="texto-housedream text-center text-bold font-black text-2xl"
+          >
+            HOUSEDREAM
+          </div>
+          <h1
+            class="text-4xl text-center fonte-cairo font-bold leading-tight tracking-tight text-[#085D72] md:text-5xl -translate-y-1/4"
+          >
+            REGISTAR
+            <hr
+              class="w-16 xl:w-42 lg:w-40 md:w-28 h-1 mx-auto my-4 bg-gray-100 border-0 rounded md:my-4 dark:bg-gray-700"
+            />
+          </h1>
+          <div class="text-center font-bold text-red-600"><%= mensagem %></div>
+          <form class="space-y-4 md:space-y-6">
+            <div>
+              <label
+                for="nomes"
+                class="block mb-2 text-1xl text-black font-bold"
+              >
+                Nome(s)
+              </label>
+              <input
+                type="text"
+                name="nomes"
+                id="nomes"
+                class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5"
+                required
+              />
+            </div>
+            <div>
+              <label
+                for="sobrenomes"
+                class="block mb-2 text-1xl text-black font-bold"
+              >
+                Sobrenome(s)
+              </label>
+              <input
+                type="text"
+                name="sobrenomes"
+                id="sobrenomes"
+                class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5"
+                required
+              />
+            </div>
+            <div>
+              <label
+                for="username"
+                class="block mb-2 text-1xl text-black font-bold"
+              >
+                Username
+              </label>
+              <input
+                type="text"
+                name="username"
+                id="username"
+                class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5"
+                required
+              />
+            </div>
+            <div>
+              <label
+                for="nacionalidade"
+                class="block mb-2 text-1xl text-black font-bold"
+              >
+                Nacionalidade
+              </label>
+              <input
+                type="text"
+                name="nacionalidade"
+                id="nacionalidade"
+                class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5"
+                required
+              />
+            </div>
+            <div>
+              <label
+                for="dataNascimento"
+                class="mb-2 text-1xl text-black font-bold"
+              >
+                Data de nascimento</label
+              >
+              <input
+                type="date"
+                name="dataNascimento"
+                id="dataNascimento"
+                class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg w-full block p-2.5 mr-11"
+                required
+              />
+            </div>
+            <div>
+              <label
+                for="estadoCivil"
+                class="block mb-2 text-1xl text-black font-bold"
+              >
+                Estado Civil
+              </label>
+              <select
+                name="estadoCivil"
+                id="estadoCivil"
+                class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg w-full p-2.5 mr-11"
+                required
+              >
+                <option value="" selected></option>
+                <option value="casado">Casado</option>
+                <option value="solteiro">Solteiro</option>
+                <option value="separado">Separado</option>
+                <option value="divorciado">Divorciado</option>
+                <option value="viuvo">Viúvo</option>
+              </select>
+            </div>
+            <div>
+              <label for="genero" class="mb-2 text-1xl text-black font-bold">
+                Género
+              </label>
+              <select
+                name="genero"
+                id="genero"
+                class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg w-full p-2.5 mr-11"
+                required
+              >
+                <option value="" selected></option>
+                <option value="masculino">Masculino</option>
+                <option value="feminino">Feminino</option>
+                <option value="outros">Outros</option>
+              </select>
+            </div>
+            <div>
+              <label
+                for="numeroTelemovel"
+                class="block mb-2 text-1xl text-black font-bold"
+              >
+                Número de telemóvel</label
+              >
+              <input
+                type="text"
+                name="numeroTelemovel"
+                id="numeroTelemovel"
+                class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5"
+                required
+                placeholder="+351999999999"
+              />
+            </div>
+            <div>
+              <label
+                for="numeroIdentificacao"
+                class="block mb-2 text-1xl text-black font-bold"
+              >
+                Número de identificação
+              </label>
+              <input
+                type="text"
+                name="numeroIdentificacao"
+                id="numeroIdentificacao"
+                class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5"
+                required
+                placeholder="123456789ZX0"
+              />
+            </div>
+            <div>
+              <label
+                for="perguntaSeguranca"
+                class="block mb-2 text-1xl text-black font-bold"
+              >
+                <div class="colocarimg">Pergunta de segurança</div>
+                <button
+                  type="button"
+                  onclick="recarregarPerguntaSeguranca()"
+                  class="btn"
+                >
+                  <img
+                    src="../images/Recarregar.png"
+                    alt="recarregar"
+                    class="colocarimg"
+                  />
+                </button>
+                <img
+                  src="../images/Vector.png"
+                  alt="Informação extra"
+                  id="colocarimgoverlay"
+                />
+                <div class="overlay" id="overlay_info_pergunta">
+                  É gerada uma questão aleatória, apartir de inteligência
+                  artificial, utilizada para verificar a identidade do
+                  utilizador ou garantir o acesso seguro à conta do mesmo.
+                </div>
+              </label>
+              <input
+                type="text"
+                name="perguntaSeguranca"
+                id="perguntaSeguranca"
+                class="bg-gray-300 border border-black text-gray-900 text-sm rounded-lg block w-full p-2.5"
+                readOnly
+                required
+                value=""
+              />
+            </div>
+            <div>
+              <label
+                for="respostaSeguranca"
+                class="block mb-2 text-1xl text-black font-bold"
+              >
+                Resposta de Segurança
+              </label>
+              <input
+                type="text"
+                name="respostaSeguranca"
+                id="respostaSeguranca"
+                class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5"
+                required
+              />
+            </div>
+            <div>
+              <label
+                for="senha"
+                class="block mb-2 text-1xl text-black font-bold"
+              >
+                Senha
+              </label>
+              <input
+                type="password"
+                name="password"
+                id="password"
+                required
+                placeholder="Introduza uma senha com pelo menos 3 caracteres"
+                class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+              />
+            </div>
+            <div>
+              <label
+                for="repetirSenha"
+                class="block mb-2 text-1xl text-black font-bold"
+              >
+                Repetir Senha
+              </label>
+              <input
+                type="password"
+                name="repetirSenha"
+                id="repetirSenha"
+                class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5"
+                required
+              />
+            </div>
+            <div class="text-center font-semibold">
+              <button
+                type="submit"
+                formMethod="POST"
+                class="text-sm w-32 xl:text-2x1 xl:w-60 lg:text-lg lg:w-52 md:text-base md:w-44 hover:bg-[#003A49] bg-[#2894B0] border-white text-white border-4 rounded-full h-16"
+              >
+                SUBMETER
+              </button>
+              <br />
+            </div>
+          </form>
+          <div class="flex justify-center">
+            <a href="/">
+              <button
+                class="text-[#57ACC1] text-md text-center hover:bg-[#003A49] bg-white border-[#57ACC1] border-4 w-40 h-11"
+              >
+                Voltar atrás
+              </button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    async function recarregarPerguntaSeguranca() {
+      try {
+        const response = await fetch("/gerar_pergunta_seguranca");
+        const data = await response.json();
+        document.getElementById("perguntaSeguranca").value =
+          data.perguntaSeguranca;
+      } catch (error) {
+        console.error("Erro ao recarregar pergunta de segurança:", error);
+        // Manipule os erros de acordo com a sua necessidade
+      }
+    }
+  </script>
+</html>

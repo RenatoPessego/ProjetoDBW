@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mesmo Dono</title>
+</head>
+<body>
+    <%- include ('navbar.ejs') %>
+    <div class="bg-white text-red-500 text-4xl font-bold flex justify-center mt-28">
+        Esta casa já é sua!
+    </div>
+    <div class="bg-white text-black">
+        <br>
+        <br>
+    </div>
+    <div class="bg-white text-black flex justify-center">
+        <a href="/inicial">
+            <button class="bg-[#002660] font-bold fonte-cairo border-[#10102e] text-white hover:bg-[#10102e] hover:border-[#101927] sm:text-xs md:text-sm lg:text-base xl:text-lg 2xl:text-xl ml-2 mr-2 my-2 sm:border-[1px] md:border-[2px] lg:border-[3px] xl:border-[4px] 2xl:border-[5px] sm:w-28 md:w-36 lg:w-44 xl:w-52 2xl:w-56 sm:h-6 md:h-8 lg:h-10 xl:h-12 2xl:h-14 shadow-xl">
+                Voltar à página inicial
+            </button>
+        </a>
+        <a href="/removercasavenda?casaid=<%= idcasa %>">
+            <button class="bg-[#002660] font-bold fonte-cairo border-[#10102e] text-white hover:bg-[#10102e] hover:border-[#101927] sm:text-xs md:text-sm lg:text-base xl:text-lg 2xl:text-xl ml-2 mr-2 my-2 sm:border-[1px] md:border-[2px] lg:border-[3px] xl:border-[4px] 2xl:border-[5px] sm:w-28 md:w-36 lg:w-44 xl:w-52 2xl:w-56 sm:h-6 md:h-8 lg:h-10 xl:h-12 2xl:h-14 shadow-xl">
+                Tirar a casa do mercado
+            </button>
+        </a>
+    </div>
+</body>
+<footer class="fixed left-0 bottom-0 w-full"><%- include ('footer.ejs') %></footer>
+</html>
+</body>
+</html>
